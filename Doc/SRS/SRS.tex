@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+\usepackage{xcolor}
+\usepackage{titling}
+\usepackage{graphicx}
+\newif\ifcomments\commentstrue
+\ifcomments
+\newcommand{\authornote}[3]{\textcolor{#1}{[#3 ---#2]}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\else
+\newcommand{\authornote}[3]{}
+\newcommand{\todo}[1]{}
+\fi
+\newcommand{\wss}[1]{\authornote{magenta}{SS}{#1}}
+\newcommand{\hm}[1]{\authornote{blue}{HM}{#1}} %Hediyeh
+\newcommand{\tz}[1]{\authornote{blue}{TZ}{#1}} %Tahereh
+\newcommand{\pl}[1]{\authornote{blue}{PL}{#1}} %Peng
+\setlength{\parindent}{0em}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+\title{SE 3XA3: Requirements Document\\Space Pinball 2017}
+
+\author{Team \#17, Test Icicles
+		\\ Andrew Bennett 1319879
+		\\ Kyriakos Kyprianou 400025691
+		\\ Teodor Tomescu 400038361
+}
+
+\date{}
+
+
+\begin{document}
+
+\begin{table}[hp]
+\caption{Revision History} \label{TblRevisionHistory}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Date} &  \textbf{Change}\\
+\midrule
+Oct. 6th -- Rev0.1 	 & first draft \\
+
+Oct. 6th -- Rev 0.2 & Table of contents bug\\
+Dec. 6th -- Rev 1.0 & Changes made to Gantt chart, small fixes as per feedback \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+
+\maketitle
+
+\clearpage
+
+\tableofcontents
+
+\newpage
+
+\textbf{{\Large Figures}}\\
+
+\textbf{1} Gantt Chart . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \textbf{12}\\
+\textbf{2} Resources Chart. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . \textbf{12}
+
+\clearpage
+
+\newpage
+
+
+\section{General Introduction}
+
+Space Pinball 2017 is a cross-platform video game that provides users with an engaging and familiar arcade-style pinball experience. Players will manipulate two paddles in order to keep a pinball in the playing area and accumulate points for their score, all while enjoying engaging visuals and dynamic gameplay.\\
+
+The motivation behind developing Space Pinball 2017 is to reinvigorate one of the world's most classic arcade games. Arcades used to be a prominent source of entertainment for people of all ages, but with the evolution of technology these games have fallen out of popularity. We believe that a pinball style game still offers immense entertainment value and it is our goal to use this to provide both a nostalgic and modern gaming experience.\\
+
+The scope of the project is to create a cross platform video game that can be enjoyed by anyone on any device. Space Pinball 2017 should provide an enjoyable and intuitive 3D gaming experience  to users of all demographics. The game will be contained within a web browser and will require only an internet connect and basic hardware requirements to run.
+
+
+\section{Project Constraints}
+
+\subsection{Mandated Constraints}
+\subsubsection{Solution Constraints}
+
+\begin{itemize}
+\item \textbf{Description:} The product shall have both desktop and mobile device compatibility.\\
+\textbf{Rational:} Users may wish to play the game on both platforms.\\
+\textbf{Fit criterion:} The game is playable on desktop and mobile environments.\\
+
+
+\item \textbf{Description:} The product shall be designed and coded using Unity and C\#.\\
+\textbf{Rational:} The flexibility and ease of use with the Unity's game development platform will make the designing of the game as well as simultaneously code the game.\\
+\textbf{Fit criterion:} Use Unity game development platform along with C\# for the development of this software.\\
+\end{itemize}
+
+\subsubsection{Implementation Constraints}
+
+\begin{itemize}
+\item The game must run on all modern web browsers
+\end{itemize}
+
+\subsection{Naming Conventions and Terminology}
+
+\textbf{Flippers:} The two controllable game objects located at the bottom of the playing field. These are activated by the user to prevent the pinball from falling out of play.\\
+
+\textbf{Point obstacles:} Any of the seven circular obstacles that increase the players points upon collisions with the pinball.\\
+
+\textbf{Pinball:} The main game object that the player must keep in play. The user's score increased when the pinball collides with other obstacles on the play field.\\
+
+\textbf{Play Field:} Describes the 3D environment in which the game is played. Contains obstacles, pinball, flippers.\\
+
+\textbf{High Score:} Players accumulate points for their score as the game progresses. High Scores are all time records for the highest scores players have achieved, and are visable in the in-game menu.
+
+
+\subsection{Assumptions}	
+It is assumed that users will meet the basic hardware requirements to run 3D games smoothly. These include DX9 graphics support and a recommended 2GB memory, which all modern devices have. It is also assumed that stakeholders will have access to modern web browsers that have HTML5 and WebGL support, which include any recent version of Chrome, Firefox, Safari, or Internet Explorer.
+
+	
+\section{Functional Requirements}
+	\begin{enumerate}
+		\item Space Pinball 2017 user interface must display the player's current score. (high score and number of lives remaining removed from the scope of the project to be added at a later time sure to lack of time)
+		\item The pinball must interact with the obstacles on the play field in accordance with the obstacle's 'type'.\\
+		Walls - The pinball should deflect off walls after a collision, but maintain its speed.\\
+		Point Obstacles - The pinball should deflect off point obstacles after a collision, but increase its speed (accelerate). 
+		\item The game should wait for player input before the pinball is 'launched' into the main playfield. 
+		\item When "A" key is pressed: The left flipper must activate.
+ \item When "D" key is pressed: The right flipper must activate.
+\item A menu button/option will be displayed during the game for the option to return to the main menu.
+
+	\end{enumerate}
+\section{Non-Functional Requirements}
+	\subsection{Quality Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 should be designed similar to a classic arcade pinball machine and function in the same manner albeit in a virtual setting.
+\item Space Pinball 2017 must run on any device that has access to the internet using a WebGL and HTML5 compatible browser.
+		\end{enumerate}
+	\subsection{Look and Feel Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 must keep track of the current score.(high score and number of lives remaining removed from the scope of the project to be added at a later time sure to lack of time)
+\item Space Pinball 2017 should have clear graphics and colours that do not disturb the vision of the user. (more colours and textures to be implemented, along with customizable skins for the user's preference)
+\item Space Pinball 2017 must have no delay with any game mechanics such as flipper activation and restarting the current game.
+		\end{enumerate}
+	\subsection{Usability Requirements }
+		\begin{enumerate}
+\item Space Pinball 2017 must be able to be used by anyone over the age of 6.
+\item Space Pinball 2017 must be intuitive and easy to learn.
+		\end{enumerate}
+		
+	\subsection{Performance Requirements}
+		\begin{enumerate}
+\item Space Pinball 2017 must run without crashing on any modern web browser.
+\item Space Pinball 2017's score keeping must be exact and update real time while a user is playing.
+\item Space Pinball 2017 must run on the browser without any lag or choppiness.
+\item Once loaded, Space Pinball 2017 must run even if the internet cuts out afterwards.
+
+		\end{enumerate}
+	\subsection{Operational Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 must run on any iPhone using iOS 7.0 or higher.
+\item Space Pinball 2017 must run on any Android device running OS 4.1 or later with and ARMv7 (Cortex) CPU with Neon support or Atom CPU.
+\item Space Pinball 2017 must run on any Windows Phone 8.1 or later. 
+\item Space Pinball 2017 must run on any recent desktop version of Firefox, Chrome, Safari or Edge.
+		\end{enumerate}
+	\subsection{Maintainability and Portability Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 should be written and documented in an organized manner for future developers.
+\item Space Pinball 2017 should be updated through the GitLab repository where all code commits will be centralized.
+\item Space Pinball 2017 should be easy to maintain through the GitLab repo.
+\item Space Pinball 2017 should be easily accessible and portable as it will be available online on the GitLab at all times.
+		\end{enumerate}
+	\subsection{Security \& Safety Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 must be loaded over a secure https connection in the browser.
+\item Space Pinball 2017 must be run in a browser and thus will have no access to any local files.
+\item Space Pinball 2017 must not contain any strobe light animations to potentially affect users suffering with epilepsy 
+Cultural and Political Requirements.
+\item Space Pinball 2017 must not include any offensive code or politically incorrect words that may offend any culture/political entity.
+		\end{enumerate}
+	\subsection{Legal Requirements}
+		\begin{enumerate}
+
+\item Space Pinball 2017 must include only original sound tracks that are not copyrighted.
+\item Space Pinball 2017 must be released under the GNU General Public License v3.0.
+\item Space Pinball 2017 must have all source code hosted on the GitLab repository.
+	\end{enumerate}
+
+\section{Inputs}
+
+Space Pinball 2017 will require user inputs through the keyboard for gameplay:
+
+\begin{itemize}
+\item "A" Key - Activate Left Flipper
+\item "D" Key - Activate Right Flipper
+\item "R" Key - Reset Game
+\item "Enter" Key - 'Launch' pinball to playfield from pre-game waiting state.
+\item Alphanumeric Keys - Enter player name after new high score.
+
+\end{itemize}	
+	
+\section{Outputs}
+
+The output for Space Pinball 2017 is a functional HTML5 game that can be run and played in a web browser. When new high scores are reached, Space Pinball 2017 should output changes to a highscore.txt file located on the server.
+	
+	
+\section{Project Issues}
+
+\subsection{Off the shelf solutions}
+
+Off the shelf solutions for Space Pinball 2017 would be other pinball style computer games. Full Tilt! Pinball developed by Cinematronics and The Pinball Arcade by FarSight studios are two examples of off the shelf solutions that seem to provide an entertaining gameplay experience. However, Full Tilt! Pinball has outdated 2.5D graphics, and the gameplay of The Pinball Arcade is different than the desired gameplay of Space Pinball 2017. 
+
+
+\subsection{New Problems}
+The creation of this software would not create any conflicts with the existing implementation environment. We are simply redesigning an existing open-source pinball game and providing users with a more exciting version that they can enjoy.
+
+\subsection{Tasks} 
+We will be using a bottom up approach to develop Space Pinball 2017. We will be using GanttCharts to delegate tasks to individuals and make sure we meet all deadlines on time. 
+
+\subsection{Risks}
+Risks involved with Space Pinball 2017 involve quality shortcomings as a result of schedule pressure and unforeseen technological difficulty. While the developers do have experience with 3D modelling and development of 3D games in Unity, creating compelling graphics and game assets may prove more time consuming than anticipated.
+
+	
+\section{Proof of Concept Demonstration}
+
+
+The Proof of Concept for Space Pinball 2017 will include: \\
+
+\textbf{1.} A pinball 'playing field' consisting of a solid floor, walls, point-scoring obstacles, and 'bumpers', and containing a 'pinball'. \\
+
+\textbf{2.} Realistic game physics which includes simulated gravity, acceleration of the pinball, and collisions between the playing field and the pinball. \\
+
+\textbf{3.} A scoring system that keeps track of how many points the player has accumulated during the game, as well as a leader board of the highest scores earned in the past. \\
+
+\textbf{4.} Pre-Game, Game-Ready, Game, and Game-Over states. The Pre-Game state should have a menu with 'Start Game' and 'View High Scores' options. The Game-Ready state should begin after the player selects 'Start Game' from the pre-game menu, and should wait for the player to press "Enter" before launching the pinball and transitioning into the Game state. The Game state will begin when the pinball is launched and will end when the player runs out of lives. The Game Over state should display the player's score, past high scores, and a menu with 'Play Again' or 'Quit' options. \\
+
+The minimum viable product for our project will include a basic 3D model of the pinball, playing field, and bumpers. Gameplay of the MVP will include a pinball that falls due to the effects of gravity and collides with the playing field obstacles including the bumpers. The bumpers should be functional and responsive to player input. 
+
+Inherent risks during the demonstration include unexpected interactions between the pinball and the playing field as testing this comprehensively is impossible. 
+
+\section{Updated Gantt Chart}
+
+\begin{figure}[h]
+  \includegraphics[scale=0.15]{gantt.png}
+  \caption{Gantt Chart}
+  \label{fig:Gantt Chart}
+\end{figure}
+
+\clearpage
+
+
+\end{document}

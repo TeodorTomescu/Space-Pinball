@@ -1,0 +1,29 @@
+\begin{theindex}
+
+  \item {Button\+Manager}, \hyperpage{5}
+    \subitem {New\+Game\+Btn}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Flipper\+Move}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Game\+Manager}, \hyperpage{6}
+  \item {Ground\+Points}, \hyperpage{7}
+
+  \indexspace
+
+  \item {New\+Game\+Btn}
+    \subitem {Button\+Manager}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Obstacle}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Score}, \hyperpage{7}
+  \item {Spring}, \hyperpage{8}
+
+\end{theindex}
